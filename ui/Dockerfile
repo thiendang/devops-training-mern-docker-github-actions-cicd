@@ -1,8 +1,8 @@
 # Pull the Node image from Docker Hub
-FROM node:14-slim
+FROM node:17-alpine
 
 # Setting Working Directory
-WORKDIR /usr/app
+WORKDIR /app
 
 # Copying only package.json
 COPY package*.json ./
