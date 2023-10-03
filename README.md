@@ -188,6 +188,10 @@ Now it's time to build docker images and push them to the docker hub.
 - Before pushing to the docker hub we need to log into the hub. That's why there's a step before pushing images. With `with` we can use secrets directly without setting them in the environment.
 - `github.run_number` - This is because it's a good practice to give a unique identifier for every image on the hub. And this environment variable (`run_number`) will be generated automatically by GitHub Actions.
 
+![Screenshot_2023-10-03_at_11.26.56.png](md-assets/Screenshot_2023-10-03_at_11.26.56.png)
+
+![Screenshot_2023-10-03_at_11.29.03.png](md-assets/Screenshot_2023-10-03_at_11.29.03.png)
+
 Here's the complete YAML file.
 
 ```yaml
