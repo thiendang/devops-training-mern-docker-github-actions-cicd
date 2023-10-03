@@ -34,7 +34,6 @@ jobs:
         run: |
           npm install
           npm run build
-          export MONGODB_URI=$MONGODB_URI
 
       # Build a Docker image for the client application
       - name: Build Client Docker Image
@@ -51,13 +50,6 @@ jobs:
         run: |
           docker build -t thiendang/devops-training-mern-docker-github-actions-cicd:api-${{github.run_number}} -t thiendang/devops-training-mern-docker-github-actions-cicd:api-latest .
 
-      # Build a Docker image for the NGINX reverse proxy
-      - name: Build NGINX Docker Image
-        working-directory: ./nginx
-        # Build image with tag thiendang/devops-training-mern-docker-github-actions-cicd:nginx
-        run: |
-          docker build -t thiendang/devops-training-mern-docker-github-actions-cicd:nginx-${{github.run_number}} -t thiendang/devops-training-mern-docker-github-actions-cicd:nginx-latest .
-
       # Log in to Docker Hub using credentials from repository secrets
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -70,10 +62,8 @@ jobs:
         run: |
           docker push thiendang/devops-training-mern-docker-github-actions-cicd:ui-${{github.run_number}}
           docker push thiendang/devops-training-mern-docker-github-actions-cicd:api-${{github.run_number}}
-          docker push thiendang/devops-training-mern-docker-github-actions-cicd:nginx-${{github.run_number}}
           docker push thiendang/devops-training-mern-docker-github-actions-cicd:ui-latest
           docker push thiendang/devops-training-mern-docker-github-actions-cicd:api-latest
-          docker push thiendang/devops-training-mern-docker-github-actions-cicd:nginx-latest
 
       # This is the step that is deploying the application to Elastic Beanstalk.
       - name: Deploy to Elastic Beanstalk
@@ -85,4 +75,4 @@ jobs:
           environment_name: ${{ secrets.EB_ENV_NAME }}
           region: ${{ secrets.EB_REGION }}
           version_label: "version-${{ github.run_number }}"
-          deployment_package: docker-compose.yml
+          deployment_package: docker-compose.yaml

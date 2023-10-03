@@ -4,7 +4,7 @@ FROM node:17-alpine
 RUN npm install -g nodemon
 
 # Setting Working Directory
-WORKDIR /app
+WORKDIR /usr/app
 
 # Copying only package.json
 COPY package*.json ./

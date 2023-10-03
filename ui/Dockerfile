@@ -2,7 +2,7 @@
 FROM node:17-alpine
 
 # Setting Working Directory
-WORKDIR /app
+WORKDIR /usr/app
 
 # Copying only package.json
 COPY package*.json ./
