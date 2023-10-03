@@ -17,6 +17,7 @@ function Home() {
       console.log(tasks);
       setTasks(tasks);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numberOfTasks, isTaskEdited]);
 
   function delTask(taskId: number) {
