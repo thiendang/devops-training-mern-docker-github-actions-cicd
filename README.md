@@ -156,7 +156,7 @@ Click on the commit and then the job to see the running steps.
 Now it's time to build docker images and push them to the docker hub.
 
 ```yaml
-			# Build a Docker image for the client application
+# Build a Docker image for the client application
       - name: Build Client Docker Image
         working-directory: ./ui
         # Build image with tag thiendang/devops-training-mern-docker-github-actions-cicd:client
