@@ -25,7 +25,6 @@ jobs:
       - name: Install Client
         working-directory: ./ui
         run: |
-          cd ui
           npm install
           npm run build
 
@@ -33,7 +32,6 @@ jobs:
       - name: Install Server
         working-directory: ./api
         run: |
-          cd api
           npm install
           export ENVIRONMENT=production
           npm run build
