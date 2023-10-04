@@ -33,7 +33,6 @@ jobs:
         working-directory: ./api
         run: |
           npm install
-          export ENVIRONMENT=production
           npm run build
 
       # Build a Docker image for the server application
