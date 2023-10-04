@@ -73,7 +73,7 @@ export const Tasks = ({ tasks, deleteTask, taskEdited }: ITasks) => {
     <div
       className="card-body"
       data-mdb-perfect-scrollbar="true"
-      style={{ position: 'relative', height: '400px' }}
+      style={{ position: 'relative', height: '400px', overflow: 'auto' }}
     >
       <table className="table mb-0">
         <thead>
