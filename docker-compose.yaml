@@ -1,13 +1,13 @@
 version: "3"
 services:
-
+  
   ui:
    build:
       context: ./ui
       dockerfile: Dockerfile
    ports:
     -  3000:3000
-   container_name: ui
+   container_name: mern-ui
    networks:
     -  mern-stack-net
    volumes:
@@ -24,7 +24,7 @@ services:
       dockerfile: Dockerfile
    ports:
      - 3080:3080
-   container_name: api
+   container_name: mern-api
    networks:
      - mern-stack-net
    volumes:
@@ -36,7 +36,7 @@ services:
     image: mongo
     ports:
       - 27017:27017
-    container_name: mongo
+    container_name: mongo-db
     networks:
       - mern-stack-net
     volumes:
